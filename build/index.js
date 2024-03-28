@@ -238,7 +238,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/timer-block","version":"0.1.0","title":"Timer Block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"attributes":{"timerDuration":{"type":"integer"}},"supports":{"html":false},"textdomain":"timer-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/timer-block","version":"0.1.0","title":"Timer Block","category":"widgets","icon":"clock","description":"A client side timer for WordPress pages.","example":{},"attributes":{"timerDuration":{"type":"integer"}},"supports":{"html":false},"textdomain":"timer-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

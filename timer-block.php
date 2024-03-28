@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Timer Block
- * Description:       A client side timer within WordPress pages.
+ * Description:       A client side timer for WordPress pages.
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
@@ -28,3 +28,8 @@ function timer_block_timer_block_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
 add_action( 'init', 'timer_block_timer_block_block_init' );
+
+function timer_block_set_translations() {
+	wp_set_script_translations( 'timer-block-editor-script', 'timer-block',  plugin_dir_path( __FILE__ ) . 'languages/' );
+}
+add_action( 'init', 'timer_block_set_translations' );

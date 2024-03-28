@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "title": "Timer Block",
   "category": "widgets",
-  "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "icon": "clock",
+  "description": "A client side timer for WordPress pages.",
   "example": {},
   "attributes": {
     "timerDuration": {

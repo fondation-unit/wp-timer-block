@@ -1,7 +1,7 @@
 {
 	"name": "timer-block",
 	"version": "0.1.0",
-	"description": "A client side timer within WordPress pages.",
+	"description": "A client side timer for WordPress pages.",
 	"author": "Pierre Duverneix - Fondation UNIT",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",

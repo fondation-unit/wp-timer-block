@@ -1,0 +1,90 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+$timer-width: 150px
+$timer-height: $timer-width
+
+.wp-block-create-block-timer-block,
+.wp-block-timer-block
+  display: flex
+  margin-top: 2px
+  margin-bottom: 2px
+
+  .timer-block-body
+    position: relative
+    right: 0
+    top: 0
+    transform: scale(0.7)
+
+    .circle
+      position: relative
+      width: $timer-width
+      height: $timer-height
+      display: flex
+      justify-content: center
+      align-items: center
+
+      svg
+        position: relative
+        width: $timer-width
+        height: $timer-height
+        -webkit-animation-timing-function: linear
+        animation-timing-function: linear
+
+        circle
+          width: 100%
+          height: 100%
+          fill: transparent
+          stroke-width: 10
+          stroke: #d8cece
+          transform: translate(5px, -5px) rotate(-90deg) translateX(-100%)
+
+          &:last-child
+            stroke: red
+            stroke-dasharray: 440 // 2 * π * radius
+            stroke-dashoffset: 440 // 2 * π * radius
+
+          &.green
+            stroke: #3da83f
+          &.yellow
+            stroke: #fbd500
+          &.red
+            stroke: #e74141
+    div
+      position: absolute
+      text-align: center
+      font-weight: 500
+      font-size: 1.5em
+
+    .dot
+      position: absolute
+      width: 100%
+      height: 100%
+      display: flex
+      border-radius: 50%
+      justify-content: center
+      align-items: flex-start
+      z-index: 1
+
+      &::before
+        position: absolute
+        content: ''
+        top: -3px
+        width: 15px
+        height: 15px
+        background: red
+        border-radius: 50%
+        box-shadow: 0 0 20px red, 0 0 60px red
+
+    #seconds
+      color: black
+      &.green
+        color: #19801b
+      &.yellow
+        color: #e8c100
+      &.red
+        color: #e74141

@@ -95,6 +95,7 @@
 .wp-block-create-block-timer-block .timer-block-body #seconds,
 .wp-block-timer-block .timer-block-body #seconds {
   color: black;
+  display: flex;
 }
 .wp-block-create-block-timer-block .timer-block-body #seconds.green,
 .wp-block-timer-block .timer-block-body #seconds.green {
@@ -107,6 +108,11 @@
 .wp-block-create-block-timer-block .timer-block-body #seconds.red,
 .wp-block-timer-block .timer-block-body #seconds.red {
   color: #e74141;
+}
+.wp-block-create-block-timer-block .timer-block-body #seconds .bi.bi-alarm,
+.wp-block-timer-block .timer-block-body #seconds .bi.bi-alarm {
+  width: 50px;
+  height: 50px;
 }
 
 /*# sourceMappingURL=index.css.map*/

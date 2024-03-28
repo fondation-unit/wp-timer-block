@@ -54,6 +54,7 @@ $timer-height: $timer-width
             stroke: #fbd500
           &.red
             stroke: #e74141
+
     div
       position: absolute
       text-align: center
@@ -82,9 +83,15 @@ $timer-height: $timer-width
 
     #seconds
       color: black
+      display: flex
+
       &.green
         color: #19801b
       &.yellow
         color: #e8c100
       &.red
         color: #e74141
+
+      .bi.bi-alarm
+        width: 50px
+        height: 50px

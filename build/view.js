@@ -25,18 +25,17 @@ var __webpack_exports__ = {};
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
-const timer = document.querySelector('.timer');
-if (timer) {
+function initializeTimer(timerBlock) {
   // Elements
-  const seconds = timer.querySelector('#seconds');
-  const timerseconds = timer.querySelector('#timerseconds');
+  const seconds = timerBlock.querySelector('#seconds');
+  const timerseconds = timerBlock.querySelector('#timerseconds');
 
   // Buttons
-  const startBtn = timer.querySelector('.btn.btn-start');
-  const pauseBtn = timer.querySelector('.btn.btn-pause');
+  const startBtn = timerBlock.querySelector('.btn.btn-start');
+  const pauseBtn = timerBlock.querySelector('.btn.btn-pause');
 
   // State
-  const duration = timer.dataset.duration || 60;
+  const duration = timerBlock.dataset.duration || 60;
   let timeleft = duration;
   let isRunning = false;
   const toggleButtons = () => {
@@ -80,6 +79,10 @@ if (timer) {
     isRunning = !isRunning;
   });
 }
+const timers = document.querySelectorAll('.timer');
+timers.forEach(timerBlock => {
+  initializeTimer(timerBlock);
+});
 /******/ })()
 ;
 //# sourceMappingURL=view.js.map

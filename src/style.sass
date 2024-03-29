@@ -10,14 +10,12 @@ $timer-height: $timer-width
 
 .wp-block-create-block-timer-block,
 .wp-block-timer-block
-  display: flex
-  margin-top: 2px
-  margin-bottom: 2px
+  flex-direction: column
+  position: sticky
+  align-items: center
 
   .timer-block-body
-    position: absolute
-    right: 0
-    top: 50%
+    right: -$timer-width
     transform: scale(0.7)
 
     .circle

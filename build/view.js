@@ -27,12 +27,18 @@ var __webpack_exports__ = {};
 
 const timer = document.querySelector('.timer');
 if (timer) {
+  // Elements
   const seconds = timer.querySelector('#seconds');
   const timerseconds = timer.querySelector('#timerseconds');
-  const duration = timer.dataset.duration || 60;
+
   // Buttons
   const startBtn = timer.querySelector('.btn.btn-start');
   const pauseBtn = timer.querySelector('.btn.btn-pause');
+
+  // State
+  const duration = timer.dataset.duration || 60;
+  let timeleft = duration;
+  let isRunning = false;
   const toggleButtons = () => {
     startBtn.classList.toggle('d-none');
     pauseBtn.classList.toggle('d-none');
@@ -43,8 +49,6 @@ if (timer) {
     seconds.className = "";
     toggleButtons();
   };
-  let timeleft = duration;
-  let isRunning = false;
   startBtn.addEventListener('click', () => {
     toggleButtons();
     isRunning = true;
@@ -55,10 +59,10 @@ if (timer) {
       }
       if (isRunning && timeleft > 0) {
         timeleft -= 1;
-        seconds.innerHTML = timeleft;
-        timerseconds.style.strokeDashoffset = 440 * (duration - timeleft) / duration;
-        timerseconds.className = "";
         seconds.className = "";
+        seconds.innerHTML = timeleft;
+        timerseconds.setAttribute('class', '');
+        timerseconds.style.strokeDashoffset = 440 * (duration - timeleft) / duration;
         if (timeleft > duration / 3 * 2) {
           timerseconds.classList.add("green");
           seconds.classList.add("green");

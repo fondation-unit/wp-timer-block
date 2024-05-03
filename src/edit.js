@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, TextControl, SelectControl } from '@wordpress/components';
+import { PanelBody, TextControl, SelectControl, RadioControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,7 +31,7 @@ import './editor.sass';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { timerDuration, timeUnit } = attributes;
+	const { timerDuration, timeUnit, timerColors } = attributes;
 
 	const setTimerDuration = (value) => {
 		const durationVal = parseInt(value, 10);
@@ -40,6 +40,10 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const setTimeUnit = (value) => {
 		setAttributes({ timeUnit: value });
+	}
+
+	const setTimerColors = (value) => {
+		setAttributes({ timerColors: value });
 	}
 
 	return (
@@ -65,6 +69,18 @@ export default function Edit({ attributes, setAttributes }) {
 							{ label: 'Secondes', value: 'secondes' },
 						]}
 						onChange={(value) => setTimeUnit(value)}
+					/>
+					<RadioControl
+						label={__(
+							'Tricolore',
+							'timer-block'
+						)}
+						selected={timerColors}
+						options={[
+							{ label: 'Oui', value: "true" },
+							{ label: 'Non', value: "false" },
+						]}
+						onChange={(value) => setTimerColors(value)}
 						__nextHasNoMarginBottom
 					/>
 				</PanelBody>

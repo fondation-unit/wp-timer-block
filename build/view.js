@@ -44,8 +44,9 @@ function initializeTimer(timerBlock) {
   const pauseBtn = timerBlock.querySelector('.btn.btn-pause');
 
   // State
-  const duration = timerBlock.dataset.duration || 60;
-  const unit = timerBlock.dataset.unit;
+  const duration = timerBlock.dataset.duration || 60,
+    unit = timerBlock.dataset.unit,
+    colors = timerBlock.dataset.colors;
   let timeleft = duration;
   let isRunning = false;
   const toggleButtons = () => {
@@ -72,15 +73,20 @@ function initializeTimer(timerBlock) {
         seconds.innerHTML = !unit || unit == 'minutes' ? convertToMinutes(timeleft) : timeleft;
         timerseconds.setAttribute('class', '');
         timerseconds.style.strokeDashoffset = 440 * (duration - timeleft) / duration;
-        if (timeleft > duration / 3 * 2) {
+        if (colors === "true") {
+          if (timeleft > duration / 3 * 2) {
+            timerseconds.classList.add("green");
+            seconds.classList.add("green");
+          } else if (timeleft > duration / 3) {
+            timerseconds.classList.add("yellow");
+            seconds.classList.add("yellow");
+          } else {
+            timerseconds.classList.add("red");
+            seconds.classList.add("red");
+          }
+        } else {
           timerseconds.classList.add("green");
           seconds.classList.add("green");
-        } else if (timeleft > duration / 3) {
-          timerseconds.classList.add("yellow");
-          seconds.classList.add("yellow");
-        } else {
-          timerseconds.classList.add("red");
-          seconds.classList.add("red");
         }
       }
     }, 1000);

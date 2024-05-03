@@ -60,7 +60,8 @@ function Edit({
 }) {
   const {
     timerDuration,
-    timeUnit
+    timeUnit,
+    timerColors
   } = attributes;
   const setTimerDuration = value => {
     const durationVal = parseInt(value, 10);
@@ -71,6 +72,11 @@ function Edit({
   const setTimeUnit = value => {
     setAttributes({
       timeUnit: value
+    });
+  };
+  const setTimerColors = value => {
+    setAttributes({
+      timerColors: value
     });
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -89,7 +95,18 @@ function Edit({
       label: 'Secondes',
       value: 'secondes'
     }],
-    onChange: value => setTimeUnit(value),
+    onChange: value => setTimeUnit(value)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Tricolore', 'timer-block'),
+    selected: timerColors,
+    options: [{
+      label: 'Oui',
+      value: "true"
+    }, {
+      label: 'Non',
+      value: "false"
+    }],
+    onChange: value => setTimerColors(value),
     __nextHasNoMarginBottom: true
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
@@ -256,7 +273,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/timer-block","version":"0.1.0","title":"Timer Block","category":"widgets","icon":"clock","description":"A client side timer for WordPress pages.","example":{},"attributes":{"timerDuration":{"type":"integer"},"timeUnit":{"type":"string"}},"supports":{"html":false},"textdomain":"timer-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/timer-block","version":"0.1.0","title":"Timer Block","category":"widgets","icon":"clock","description":"A client side timer for WordPress pages.","example":{},"attributes":{"timerDuration":{"type":"integer"},"timeUnit":{"type":"string"},"timerColors":{"type":"string"}},"supports":{"html":false},"textdomain":"timer-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

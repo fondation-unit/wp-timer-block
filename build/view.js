@@ -25,6 +25,15 @@ var __webpack_exports__ = {};
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
 
+function convertToMinutes(seconds) {
+  let formattedTime = new Date(seconds * 1000).toISOString().substring(14, 19);
+
+  // Remove leading '0' from minutes if minutes start with '0'
+  if (formattedTime[0] === '0') {
+    formattedTime = formattedTime.substring(1);
+  }
+  return formattedTime;
+}
 function initializeTimer(timerBlock) {
   // Elements
   const seconds = timerBlock.querySelector('#seconds');
@@ -59,7 +68,7 @@ function initializeTimer(timerBlock) {
       if (isRunning && timeleft > 0) {
         timeleft -= 1;
         seconds.className = "";
-        seconds.innerHTML = timeleft;
+        seconds.innerHTML = convertToMinutes(timeleft);
         timerseconds.setAttribute('class', '');
         timerseconds.style.strokeDashoffset = 440 * (duration - timeleft) / duration;
         if (timeleft > duration / 3 * 2) {

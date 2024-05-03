@@ -5,7 +5,10 @@
 
 if ( !empty( $attributes['timerDuration'] ) ) : ?>
 
-  <div class="wp-block-timer-block timer" data-duration="<?php echo $attributes['timerDuration']; ?>" <?php echo get_block_wrapper_attributes(); ?>>
+  <div class="wp-block-timer-block timer"
+    data-duration="<?php echo $attributes['timerDuration']; ?>"
+    data-unit="<?php echo !empty( $attributes['timeUnit'] ) ? $attributes['timeUnit'] : 'minutes'; ?>"
+    <?php echo get_block_wrapper_attributes(); ?>>
     <div class="timer-block-body">
       <div class="circle">
         <svg>

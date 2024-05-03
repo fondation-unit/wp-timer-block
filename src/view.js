@@ -43,7 +43,8 @@ function initializeTimer(timerBlock) {
   const pauseBtn = timerBlock.querySelector('.btn.btn-pause');
 
   // State
-  const duration = timerBlock.dataset.duration || 60
+  const duration = timerBlock.dataset.duration || 60;
+  const unit = timerBlock.dataset.unit;
   let timeleft = duration;
   let isRunning = false;
 
@@ -73,7 +74,7 @@ function initializeTimer(timerBlock) {
         timeleft -= 1;
 
         seconds.className = "";
-        seconds.innerHTML = convertToMinutes(timeleft);
+        seconds.innerHTML = !unit || unit == 'minutes' ? convertToMinutes(timeleft) : timeleft;
         timerseconds.setAttribute('class', '');
         timerseconds.style.strokeDashoffset = (440 * (duration - timeleft)) / duration;
 

@@ -11,6 +11,9 @@
 	"attributes": {
 		"timerDuration": {
 			"type": "integer"
+		},
+		"timeUnit": {
+			"type": "string"
 		}
 	},
 	"supports": {

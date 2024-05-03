@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
+import { PanelBody, TextControl, SelectControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,11 +31,15 @@ import './editor.sass';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { timerDuration } = attributes;
+	const { timerDuration, timeUnit } = attributes;
 
 	const setTimerDuration = (value) => {
 		const durationVal = parseInt(value, 10);
 		setAttributes({ timerDuration: durationVal || '' });
+	}
+
+	const setTimeUnit = (value) => {
+		setAttributes({ timeUnit: value });
 	}
 
 	return (
@@ -44,11 +48,24 @@ export default function Edit({ attributes, setAttributes }) {
 				<PanelBody title={__('Settings', 'timer-block')}>
 					<TextControl
 						label={__(
-							'Timer duration',
+							'Durée',
 							'timer-block'
 						)}
 						value={timerDuration || ''}
 						onChange={(value) => setTimerDuration(value)}
+					/>
+					<SelectControl
+						label={__(
+							'Unité',
+							'timer-block'
+						)}
+						value={timeUnit}
+						options={[
+							{ label: 'Minutes', value: 'minutes' },
+							{ label: 'Secondes', value: 'secondes' },
+						]}
+						onChange={(value) => setTimeUnit(value)}
+						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>

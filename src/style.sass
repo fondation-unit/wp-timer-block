@@ -7,16 +7,23 @@
 
 $timer-width: 150px
 $timer-height: $timer-width
+$container-breakpoint: 992px
 
 .wp-block-create-block-timer-block,
 .wp-block-timer-block
   flex-direction: column
   position: sticky
   align-items: center
+  @media (max-width: $container-breakpoint)
+    right: 0
+    position: absolute
 
   .timer-block-body
     right: -$timer-width
     transform: scale(0.7)
+    @media (max-width: $container-breakpoint)
+      right: 0
+      transform: scale(0.6)
 
     .circle
       position: relative
